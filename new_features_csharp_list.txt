@@ -1,0 +1,66 @@
+a. C# 2.0 (2005) -.NET 2.0
+------------------------------
+Generics
+Partial types
+Anonymous methods
+Nullable types
+Private setters (properties)
+Method group conversions (delegates)
+Static classes
+
+not discussed:
+co-variance and contra-variance (delegate)
+
+b. C# 3.0 (2007) -.NET 3.0
+----------------------------------
+Implicitly typed local variables
+Object and collection initializers
+Auto-Implemented properties
+Anonymous types
+Extension methods
+Query expressions
+Lambda expressions
+Expression trees
+Partial Methods
+
+c. C# 4.0 (2010) .NET 4.0
+------------------------------------
+Dynamic binding (late binding)
+Named and optional arguments
+
+d. C# 5.0 (2012/2013) - .NET 4.5
+---------------------------------------
+Async features (not discussed)
+
+e. C# 6.0 (2013/2015) - .NET 4.6
+----------------------------------------
+Auto-property initializer
+nameof Expression
+String Interpolation
+static imports
+
+didn't discuss:
+null propagator
+Exception Filter
+Expression bodied Methods (C# 6.0)
+Expression bodied Properties (C# 6.0)
+Await in catch block
+Primary constructor (deprecated)
+
+f. C# 7.0 (2017) - .NET 4.7
+----------------------------------
+out variables
+Local functions
+
+not discussed:
+throw Expressions
+Tuples
+Discards
+Binary Literal
+Digit Separators
+Pattern Matching
+Generalized async return types
+Expression bodied constructor (C# 7.0)
+Expression bodied destructor (C# 7.0)
+Expression bodied getters (C# 7.0)
+Expression bodied setters (C# 7.0)
