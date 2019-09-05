@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://siemens.com/procedure_details_schema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://siemens.com/stored_procedure_schema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="procedures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="procedure" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element name="parameters" minOccurs="1" maxOccurs="1" nillable="true" >
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="parametername" type="xs:string"/>
+                          <xs:element name="parametertype" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:int" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

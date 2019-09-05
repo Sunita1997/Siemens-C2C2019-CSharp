@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<procedures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="procedure_details_schema.xsd">
+
+  <procedure id="1">
+    <name>GetDepartments</name>
+    <parameters/>
+  </procedure>
+
+  <procedure id="2">
+    <name>GetEmployeesFromADepartment</name>
+    <parameters>
+      <parameter>
+        <parametername>@deptid</parametername>
+        <parametertype>int</parametertype>
+      </parameter>
+    </parameters>
+  </procedure>
+
+  <procedure id="3">
+    <name>DeleteEmployeeRecord</name>
+    <parameters>
+      <parameter>
+        <parametername>@id</parametername>
+        <parametertype>int</parametertype>
+      </parameter>
+    </parameters>
+  </procedure>
+
+</procedures>
