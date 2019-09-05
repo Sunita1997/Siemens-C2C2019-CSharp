@@ -1,18 +1,16 @@
 ﻿using System;
+using Entities;
 using System.Data;
 using System.Data.SqlClient;
 using static DataAccess_DAL.Utility.DaoUtility;
-
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess_DAL
 {
     public class EmployeeDataAccess
     {
-        public int InsertEmployeeRecord(string empName, string empLocation, decimal empSalary, int empDeptId)
+        //public int InsertEmployeeRecord(string empName, string empLocation, decimal empSalary, int empDeptId)
+        public int InsertEmployeeRecord(Employee employee)
         {
             string connectionString = null;
             SqlConnection connection = null;
@@ -32,10 +30,10 @@ namespace DataAccess_DAL
 
                         if (command != null)
                         {
-                            SqlParameter pmName = CreateParameter("@name", empName, SqlDbType.VarChar);
-                            SqlParameter pmSalary = CreateParameter("@salary", empSalary, SqlDbType.Decimal);
-                            SqlParameter pmLocation = CreateParameter("@location", empLocation, SqlDbType.VarChar);
-                            SqlParameter pmDeptid = CreateParameter("@deptid", empDeptId, SqlDbType.Int);
+                            SqlParameter pmName = CreateParameter("@name", employee.EmployeeName, SqlDbType.VarChar);
+                            SqlParameter pmSalary = CreateParameter("@salary", employee.EmployeeSalary, SqlDbType.Decimal);
+                            SqlParameter pmLocation = CreateParameter("@location", employee.EmployeeLocation, SqlDbType.VarChar);
+                            SqlParameter pmDeptid = CreateParameter("@deptid", employee.DepartmentId, SqlDbType.Int);
 
                             command.Parameters.Add(pmName);
                             command.Parameters.Add(pmSalary);
@@ -51,10 +49,6 @@ namespace DataAccess_DAL
 
                             OpenConnection(connection);
                             result = command.ExecuteNonQuery();
-                            //if (result > 0)
-                            //    Console.WriteLine($"{result} record(s) added successfully");
-                            //else
-                            //    Console.WriteLine($"no record(s) added");
                         }
                     }
                 }
@@ -73,6 +67,62 @@ namespace DataAccess_DAL
                     CloseConnection(connection);
             }
             return result;
+        }
+        public List<Employee> GetAllEmployeeRecords()
+        {
+            string connectionString = null;
+            string procedureName = null;
+            SqlConnection connection = null;
+            SqlCommand command = null;
+            SqlDataReader reader = null;
+            List<Employee> employees = null;
+            try
+            {
+                connectionString = GetConnectionString();
+                if (connectionString != null && connectionString != string.Empty)
+                {
+                    connection = CreateConnection(connectionString);
+
+                    if (connection != null)
+                    {
+                        procedureName = GetProcedureName("GETALL_SELECT_QUERY");
+                        command = CreateCommand(connection, procedureName);
+
+                        OpenConnection(connection);                        
+                        reader = command.ExecuteReader();
+                        if (reader != null && reader.HasRows)
+                        {
+                            employees = new List<Employee>();
+                            while (reader.Read())
+                            {                              
+                                Employee employee = new Employee
+                                {
+                                    EmployeeName = reader["Name"].ToString(),
+                                    EmployeeId = (int)reader["ID"],
+                                    EmployeeSalary = (decimal)reader["Salary"],
+                                    EmployeeLocation = (string)reader["Location"]
+                                };
+                                employees.Add(employee);
+                            }
+                            reader.Close();
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (connection != null)
+                    CloseConnection(connection);
+            }
+            return employees;
         }
     }
 }
