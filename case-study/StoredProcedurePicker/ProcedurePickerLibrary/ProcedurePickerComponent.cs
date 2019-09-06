@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace StoredProcedurePicker
+namespace ProcedurePickerLibrary
 {
-    class ParameterInfo
+    public class ParameterInfo
     {
         public string ParameterName { get; set; }
         public string ParameterType { get; set; }
     }
-    class ProcedureInfo
+    public class ProcedureInfo
     {
         public string Name { get; set; }
         public List<ParameterInfo> Parameters { get; set; }
     }
-    class Program
+    public class ProcedurePickerComponent
     {
-        static void Main()
+        public List<ProcedureInfo> GetProcedures()
         {
             string filePath = @"E:\Siemens\C2C-2019\CSharp\Siemens-C2C2019-CSharp\Siemens-C2C2019-CSharp\case-study\procedure_details.xml";
 
@@ -58,11 +57,11 @@ namespace StoredProcedurePicker
                                             switch (paramChild.Name)
                                             {
                                                 case "parametername":
-                                                    parameterInfo.ParameterName = paramChild.InnerText.TrimStart(' ');
+                                                    parameterInfo.ParameterName = paramChild.InnerText.Trim(' ');
                                                     break;
 
                                                 case "parametertype":
-                                                    parameterInfo.ParameterType = paramChild.InnerText.TrimStart(' ');
+                                                    parameterInfo.ParameterType = paramChild.InnerText.Trim(' ');
                                                     break;
                                                 default:
                                                     break;
@@ -81,21 +80,7 @@ namespace StoredProcedurePicker
                     procedures.Add(procedureInfo);
                 }
             }
-
-            foreach (var procedure in procedures)
-            {
-                Console.WriteLine($"Procedure Name: {procedure.Name}");
-                Console.WriteLine("---------------------");
-                if (procedure.Parameters != null && procedure.Parameters.Count > 0)
-                {
-                    foreach (var parameter in procedure.Parameters)
-                    {                        
-                        Console.WriteLine("Parameter Name:" + parameter.ParameterName + ", Data Type:" + parameter.ParameterType);
-                    }
-                    Console.WriteLine();
-                }
-            }
+            return procedures;
         }
     }
 }
-
