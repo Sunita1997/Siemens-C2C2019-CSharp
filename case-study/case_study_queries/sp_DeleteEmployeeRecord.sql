@@ -1,6 +1,6 @@
 ﻿create procedure DeleteEmployeeRecord
 @id int,
-@res int out
+@res int= 0 out
 as
 begin
 	declare @count int;
@@ -9,9 +9,5 @@ begin
 		begin
 			delete from employees where employeeid =@id
 			set @res = 1
-		end
-	else
-		begin
-			set @res = 0
-		end
+		end	
 end

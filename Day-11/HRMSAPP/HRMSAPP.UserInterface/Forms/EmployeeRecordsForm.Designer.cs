@@ -90,7 +90,7 @@
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersWidth = 51;
             this.dgvEmployees.RowTemplate.Height = 24;
-            this.dgvEmployees.Size = new System.Drawing.Size(1090, 280);
+            this.dgvEmployees.Size = new System.Drawing.Size(1239, 280);
             this.dgvEmployees.TabIndex = 1;
             this.dgvEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmployees_CellContentClick);
             // 
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 566);
+            this.ClientSize = new System.Drawing.Size(1373, 566);
             this.Controls.Add(this.dgvEmployees);
             this.Controls.Add(this.panelDepartments);
             this.Name = "EmployeeRecordsForm";

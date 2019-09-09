@@ -7,5 +7,7 @@ namespace HRMSAPP.DataAccessLayer.Contract
     {
         int DeleteEmployeeRecord(int employeeId);
         List<Employee> GetEmployeeFromADepartment(int departmentId);
+        int ModifyEmployeeRecord(Employee employee);
+        int InsertEmployeeRecord(Employee employee);
     }
 }

@@ -7,5 +7,7 @@ namespace HRMSAPP.BusinessLayer.Contract
     {
         List<Employee> FetchEmployeeByDepartment(int departmentId);
         int RemoveEmployee(int employeeId);
+        int UpdateEmployee(Employee employee);
+        int AddNewEmployee(Employee employee);
     }
 }

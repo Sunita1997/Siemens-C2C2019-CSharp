@@ -46,25 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddEmployeeRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEmployeeRecordForm.Designer.cs">
+      <DependentUpon>AddEmployeeRecordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeeRecordsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EmployeeRecordsForm.Designer.cs">
       <DependentUpon>EmployeeRecordsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewEmployeeRecord.cs">
+    <Compile Include="Forms\HRMSMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ViewEmployeeRecord.Designer.cs">
-      <DependentUpon>ViewEmployeeRecord.cs</DependentUpon>
+    <Compile Include="Forms\HRMSMenuForm.Designer.cs">
+      <DependentUpon>HRMSMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateEmployeeRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateEmployeeRecordForm.Designer.cs">
+      <DependentUpon>UpdateEmployeeRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewEmployeeRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewEmployeeRecordForm.Designer.cs">
+      <DependentUpon>ViewEmployeeRecordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddEmployeeRecordForm.resx">
+      <DependentUpon>AddEmployeeRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeRecordsForm.resx">
       <DependentUpon>EmployeeRecordsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewEmployeeRecord.resx">
-      <DependentUpon>ViewEmployeeRecord.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\HRMSMenuForm.resx">
+      <DependentUpon>HRMSMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateEmployeeRecordForm.resx">
+      <DependentUpon>UpdateEmployeeRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewEmployeeRecordForm.resx">
+      <DependentUpon>ViewEmployeeRecordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
